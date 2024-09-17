@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=url_shortener'
+      - 'POSTGRES_PASSWORD=pass'
+      - 'POSTGRES_USER=divin'
+    ports:
+      - '5432:5432'
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"

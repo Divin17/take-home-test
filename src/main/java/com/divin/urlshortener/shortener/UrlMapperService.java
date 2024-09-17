@@ -23,7 +23,7 @@ public class UrlMapperService {
 
     public String shortenUrl(String originalUrl, String id, Integer ttl){
         var baseUrl = getBaseUrl();
-        var urlId = (id != null) ? id : generateShortUrl();
+        var urlId = (id != null && !id.isEmpty()) ? id : generateShortUrl();
         log.info("Checking if urlId exist {}", urlId);
         if(repository.existsById(urlId)){
             log.error("URL ID ALREADY CREATED AND IN USE --> {}", id);

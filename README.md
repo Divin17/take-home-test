@@ -79,7 +79,14 @@ Make sure Docker and Docker Compose are installed on your machine to run the Pos
 The URL shortener service provides the following REST endpoints:
 
 - `POST /shorten`: Shortens a long URL and returns the shortened URL.
-  - Request Body: JSON object containing the original URL and optional TTL.
+  - Request Body: JSON object containing the original URL optional id and optional TTL 
+    ```
+    {
+      "originalUrl": "https://www.google.com",
+      "id": "",
+      "ttl": 500
+      }
+    ```
   - Response: JSON object with the shortened URL.
 - `GET /{id}`: Redirects to the original URL associated with the given ID.
 - `DELETE /shorten/{id}`: Deletes the shortened URL associated with the given ID.
